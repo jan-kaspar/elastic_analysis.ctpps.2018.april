@@ -5,9 +5,10 @@ include "../run_info.asy";
 string topDir = "../../";
 
 string datasets[] = {
-	"DS-xangle-110",
-	"DS-xangle-130",
-	"DS-xangle-150",
+	"DS-xangle-160-beta-30",
+	"DS-xangle-131-beta-30",
+	"DS-xangle-130-beta-30",
+	"DS-xangle-130-beta-25",
 };
 
 string units[] = { "L_2_F", "L_1_F", "R_1_F", "R_2_F" };
@@ -30,7 +31,7 @@ for (int ui : units.keys)
 {
 	NewPad("time $\ung{h}$", "tilt $\ung{mrad}$", axesAbove=false);
 	//currentpad.yTicks = RightTicks(5., 1.);
-	DrawRunBands(-60, +60);
+	DrawRunBands(-60, +80);
 
 	for (int di : datasets.keys)
 	{
@@ -63,7 +64,7 @@ for (int ui : units.keys)
 {
 	NewPad("time $\ung{h}$", "horizontal position $\ung{\mu m}$", axesAbove=false);
 	//currentpad.yTicks = RightTicks(20., 10.);
-	DrawRunBands(-100, +1000);
+	DrawRunBands(-500, +1000);
 
 	/*
 	TGraph_reducePoints = 30;

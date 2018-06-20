@@ -18,9 +18,10 @@ void AddRun(string ds, int r, real f, real t, pen p = yellow)
 	colors.push(p);
 }
 
-AddRun("xangle-110", 303665, 127970, 135079);
-AddRun("xangle-130", 303658, 121923, 127690);
-AddRun("xangle-150", 303652, 118827, 120094);
+AddRun("160/0.30", 0, 72846, 73835);
+AddRun("131/0.30", 0, 74740, 84017);
+AddRun("130/0.30", 0, 84384, 97444);
+AddRun("130/0.25", 0, 98038, 105295);
 
 // in hours
 real time_min = 0;
@@ -45,8 +46,9 @@ void DrawRunBands(string ds_filter="", real y_min=0, real y_max=0, bool details=
 
 		if (details)
 		{
+			label("{\SmallerFonts " + run_datasets[i] + "}", ((x_min + x_max)/2, y_max), S);
 			//label("{\SmallerFonts " + run_datasets[i] + format("/%u}", runs[i]), ((x_min + x_max)/2, y_max), S);
-			label("{\SmallerFonts " + format("/%u}", runs[i]), ((x_min + x_max)/2, y_max), S);
+			//label("{\SmallerFonts " + format("/%u}", runs[i]), ((x_min + x_max)/2, y_max), S);
 		}
 	}
 }

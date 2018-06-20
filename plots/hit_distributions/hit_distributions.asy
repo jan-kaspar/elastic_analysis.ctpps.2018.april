@@ -6,13 +6,14 @@ string topDir = "../../";
 TH2_palette = Gradient(blue, heavygreen, yellow, red);
 
 string datasets[] = {
-	"DS-xangle-110",
-	"DS-xangle-130",
-	"DS-xangle-150",
+	"DS-xangle-160-beta-30",
+	"DS-xangle-131-beta-30",
+	"DS-xangle-130-beta-30",
+	"DS-xangle-130-beta-25",
 };
 
 string units[] = { "L_2_F", "L_1_F", "R_1_F", "R_2_F" };
-string units[] = { "L_2_F" };
+//string units[] = { "L_2_F" };
 string unit_labels[] = { "45-220-fr", "45-210-fr", "56-210-fr", "56-220-fr" };
 
 real sh_top[] = { 6.6, 6.0, 5.7,     7.2, 7.5, 8.2 };
@@ -20,17 +21,15 @@ real sh_bot[] = { -6.8, -6.4, -6.2, -6.3, -6.4, -7.1 };
 
 drawGridDef = true;
 
-/*
-TH2_x_min = -3;
-TH2_x_max = +3;
-TH2_y_min = -3;
-TH2_y_max = +8;
-*/
+TH2_x_min = -5;
+TH2_x_max = +5;
+TH2_y_min = -5;
+TH2_y_max = +10;
 
-//string dir = "hit distributions/vertical, aligned, after selection";
-//string suffix = "_al_sel";
-string dir = "hit distributions/vertical, aligned, before selection";
-string suffix = "_al_nosel";
+string dir = "hit distributions/vertical, aligned, after selection";
+string suffix = "_al_sel";
+//string dir = "hit distributions/vertical, aligned, before selection";
+//string suffix = "_al_nosel";
 
 //----------------------------------------------------------------------------------------------------
 
@@ -78,8 +77,8 @@ for (int dsi : datasets.keys)
 
 		//draw(shift(6.2, 0)*rotate(-90)*det_shape);
 
-		//limits((-3, -3), (+3, +8), Crop);
-		limits((-15, -30), (+15, +30), Crop);
+		limits((-5, -5), (+5, +10), Crop);
+		//limits((-15, -30), (+15, +30), Crop);
 
 		AttachLegend(replace(unit_labels[ui], "_", "\_"));
 	}

@@ -6,15 +6,16 @@ string topDir = "../../";
 TH2_palette = Gradient(blue, heavygreen, yellow, red);
 
 string datasets[] = {
-	"DS-xangle-110",
-	"DS-xangle-130",
-	"DS-xangle-150",
+	"DS-xangle-160-beta-30",
+	"DS-xangle-131-beta-30",
+	"DS-xangle-130-beta-30",
+	"DS-xangle-130-beta-25",
 };
 
 string dgns[] = { "45b_56t", "45t_56b" };
 //string dgns[] = { "45t_56b" };
 
-int cuts[] = { 1, 2, 3, 4, 5, 6, 7 };
+int cuts[] = { 5, 6 };
 
 real scale_x[] = { 1e6, 1e6, 1e6, 1e6, 1e0, 1e0, 1e6, 1e6 };
 real scale_y[] = { 1e6, 1e6, 1e0, 1e0, 1e0, 1e0, 1e0, 1e0 };
@@ -64,7 +65,7 @@ for (int ci : cuts.keys)
 			draw(scale(scale_x[idx], scale_y[idx]), RootGetObject(f, objC+"#0"), "p,d0,bar");
 			draw(scale(scale_x[idx], scale_y[idx]), RootGetObject(f, objC+"#1"));
 			draw(scale(scale_x[idx], scale_y[idx]), RootGetObject(f, objC+"#2"));
-			limits((-lim_x_high[idx], -lim_y_high[idx]), (-lim_x_low[idx], -lim_y_low[idx]), Crop);
+			//limits((-lim_x_high[idx], -lim_y_high[idx]), (-lim_x_low[idx], -lim_y_low[idx]), Crop);
 			
 			NewPad(label_x[idx], label_y[idx]);
 			scale(Linear, Linear, Log);
@@ -72,12 +73,13 @@ for (int ci : cuts.keys)
 			draw(scale(scale_x[idx], scale_y[idx]), RootGetObject(f, objC+"#0"), "p,d0,bar");
 			draw(scale(scale_x[idx], scale_y[idx]), RootGetObject(f, objC+"#1"));
 			draw(scale(scale_x[idx], scale_y[idx]), RootGetObject(f, objC+"#2"));
-			limits((-lim_x_high[idx], -lim_y_high[idx]), (-lim_x_low[idx], -lim_y_low[idx]), Crop);
+			//limits((-lim_x_high[idx], -lim_y_high[idx]), (-lim_x_low[idx], -lim_y_low[idx]), Crop);
 			
 			NewPad(label_cut[idx]);
 			string objH = format("elastic cuts/cut %i", cut) + format("/h_cq%i", cut);
 			draw(scale(scale_y[idx], 1.), RootGetObject(f, objH+""), "vl,eb,lM,lR", red);
 			//draw(scale(scale_x[idx], scale_y[idx]), RootGetObject(f, objH+"|gaus"));
+			xlimits(-0.5, +0.5, Crop);
 			AttachLegend();
 		}
 	}
