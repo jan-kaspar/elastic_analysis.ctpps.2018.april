@@ -439,14 +439,14 @@ int main(int argc, char **argv)
 
 		if (diagonal == d45b_56t)
 		{
-			if (i == 5) { x_min = +4.; x_max = +6.; y_min = -1.5; y_max = 1.5; q_max = 1000E-3; }
-			if (i == 6) { x_min = -2.; x_max = +0.; y_min = -1.5; y_max = 1.5; q_max = 1000E-3; }
+			if (i == 5) { x_min = +4.; x_max = +6.; y_min = -2.0; y_max = 2.0; q_max = 1000E-3; }
+			if (i == 6) { x_min = -2.; x_max = +0.; y_min = -2.0; y_max = 2.0; q_max = 1000E-3; }
 		}
 
 		if (diagonal == d45t_56b)
 		{
-			if (i == 5) { x_min = -2.; x_max = -0.; y_min = -1.5; y_max = 1.5; q_max = 1000E-3; }
-			if (i == 6) { x_min = +4.; x_max = +6.; y_min = -1.5; y_max = 1.5; q_max = 1000E-3; }
+			if (i == 5) { x_min = -2.; x_max = -0.; y_min = -2.0; y_max = 2.0; q_max = 1000E-3; }
+			if (i == 6) { x_min = +4.; x_max = +6.; y_min = -2.0; y_max = 2.0; q_max = 1000E-3; }
 		}
 
 		// TODO
@@ -458,7 +458,7 @@ int main(int argc, char **argv)
 		sprintf(name, "h2_cq_full%i", i); sprintf(title, ";%s;%s", anal.cqaN[i].c_str(), anal.cqbN[i].c_str()); h2_cq_full[i] = new TH2D(name, title, 100, x_min, x_max, 100, y_min, y_max);
 
 		sprintf(name, "g_cq%i", i); sprintf(title, ";%s;%s", anal.cqaN[i].c_str(), anal.cqbN[i].c_str()); g_cq[i] = new TGraph(); g_cq[i]->SetName(name); g_cq[i]->SetTitle(title);
-		sprintf(name, "p_cq%i", i); sprintf(title, ";%s;%s", anal.cqaN[i].c_str(), anal.cqbN[i].c_str()); p_cq[i] = new TProfile(name, title, 300, x_min, x_max);
+		sprintf(name, "p_cq%i", i); sprintf(title, ";%s;%s", anal.cqaN[i].c_str(), anal.cqbN[i].c_str()); p_cq[i] = new TProfile(name, title, 150, x_min, x_max);
 		sprintf(name, "p_cq_time%i", i); sprintf(title, ";time   (s);mean of cq%i", i); p_cq_time[i] = new TProfile(name, title, 240, 6E3-0.5, 30E3+0.5);
 	}
 	
@@ -860,10 +860,11 @@ int main(int argc, char **argv)
 		}
 
 		// apply XY cut
-		if (h_al.L_2_F.x < -2.0 || h_al.L_2_F.x > +2.0 || h_al.L_2_F.y < -2.0 || h_al.L_2_F.y > +6.0) continue;
-		if (h_al.L_1_F.x < -1.5 || h_al.L_1_F.x > +2.5 || h_al.L_1_F.y < -2.0 || h_al.L_1_F.y > +8.0) continue;
-		if (h_al.R_1_F.x < -2.0 || h_al.R_1_F.x > +2.5 || h_al.R_1_F.y < -2.0 || h_al.R_1_F.y > +7.0) continue;
-		if (h_al.R_2_F.x < -1.0 || h_al.R_2_F.x > +3.0 || h_al.R_2_F.y < -2.0 || h_al.R_2_F.y > +6.5) continue;
+		if (h_al.L_2_F.x < -2.0 || h_al.L_2_F.x > +2.0 || h_al.L_2_F.y < -2.5 || h_al.L_2_F.y > +6.5) continue;
+		if (h_al.L_1_F.x < -2.0 || h_al.L_1_F.x > +2.0 || h_al.L_1_F.y < -2.5 || h_al.L_1_F.y > +7.5) continue;
+		if (h_al.R_1_F.x < -2.0 || h_al.R_1_F.x > +2.0 || h_al.R_1_F.y < -2.5 || h_al.R_1_F.y > +7.5) continue;
+		if (h_al.R_2_F.x < -2.0 || h_al.R_2_F.x > +2.0 || h_al.R_2_F.y < -2.5 || h_al.R_2_F.y > +6.5) continue;
+
 
 		// run reconstruction
 		Kinematics k = DoReconstruction(h_al, env);
