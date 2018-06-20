@@ -5,12 +5,9 @@ void Init_base()
 	// load global settings
 	Init_global();
 
-	// list of (sub-)directories with distilled ntuples
-	distilledNtuples.push_back(".");
-
 	// alignment periods
-	anal.alignment_t0 = 127970;		// beginning of the first time-slice
-	anal.alignment_ts = 7200;		// time-slice in s
+	anal.alignment_t0 = 98038;				// beginning of the first time-slice
+	anal.alignment_ts = 105295 - 98038;		// time-slice in s
 }
 
 //----------------------------------------------------------------------------------------------------
