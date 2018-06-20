@@ -31,7 +31,7 @@ function MakeOne()
 
 #----------------------------------------------------------------------------------------------------
 
-eos_dir="/eos/totem/data/ctpps/reconstruction/2018/alignment_run_April/version2"
+eos_dir="/eos/totem/data/ctpps/reconstruction/2018/alignment_run_April/version3"
 
 MakeOne "DS-xangle-160-beta-30" "314247"
 
