@@ -115,12 +115,12 @@ int main(int argc, char **argv)
 		return rcIncompatibleDiagonal;
 
 	// default parameters
-	unsigned int detailsLevel = 10; 	// 0: no details, 1: some details, >= 2 all details
+	unsigned int detailsLevel = 1; 	// 0: no details, 1: some details, >= 2 all details
 	bool overrideCutSelection = false;	// whether the default cut selection should be overriden by the command-line selection
 	string cutSelectionString;
 	string outputDir = ".";
 	string inputDir = ".";
-	double input_n_si = 3.0;
+	double input_n_si = 4.0;
 	int time_group_divisor = 0;
 	int time_group_remainder = 0;
 	int event_group_divisor = 0;
@@ -439,14 +439,14 @@ int main(int argc, char **argv)
 
 		if (diagonal == d45b_56t)
 		{
-			if (i == 5) { x_min = +4.; x_max = +6.; y_min = -2.0; y_max = 2.0; q_max = 1000E-3; }
-			if (i == 6) { x_min = -2.; x_max = +0.; y_min = -2.0; y_max = 2.0; q_max = 1000E-3; }
+			if (i == 5) { x_min = +2.; x_max = +4.; y_min = -2.0; y_max = 2.0; q_max = 1000E-3; }
+			if (i == 6) { x_min = -4.; x_max = -2.; y_min = -2.0; y_max = 2.0; q_max = 1000E-3; }
 		}
 
 		if (diagonal == d45t_56b)
 		{
-			if (i == 5) { x_min = -2.; x_max = -0.; y_min = -2.0; y_max = 2.0; q_max = 1000E-3; }
-			if (i == 6) { x_min = +4.; x_max = +6.; y_min = -2.0; y_max = 2.0; q_max = 1000E-3; }
+			if (i == 5) { x_min = -4.; x_max = -2.; y_min = -2.0; y_max = 2.0; q_max = 1000E-3; }
+			if (i == 6) { x_min = +2.; x_max = +4.; y_min = -2.0; y_max = 2.0; q_max = 1000E-3; }
 		}
 
 		// TODO
@@ -860,11 +860,10 @@ int main(int argc, char **argv)
 		}
 
 		// apply XY cut
-		if (h_al.L_2_F.x < -2.0 || h_al.L_2_F.x > +2.0 || h_al.L_2_F.y < -2.5 || h_al.L_2_F.y > +6.5) continue;
-		if (h_al.L_1_F.x < -2.0 || h_al.L_1_F.x > +2.0 || h_al.L_1_F.y < -2.5 || h_al.L_1_F.y > +7.5) continue;
-		if (h_al.R_1_F.x < -2.0 || h_al.R_1_F.x > +2.0 || h_al.R_1_F.y < -2.5 || h_al.R_1_F.y > +7.5) continue;
-		if (h_al.R_2_F.x < -2.0 || h_al.R_2_F.x > +2.0 || h_al.R_2_F.y < -2.5 || h_al.R_2_F.y > +6.5) continue;
-
+		if (h_al.L_2_F.x < -2.0 || h_al.L_2_F.x > +2.0 || h_al.L_2_F.y < -4.5 || h_al.L_2_F.y > +4.5) continue;
+		if (h_al.L_1_F.x < -2.0 || h_al.L_1_F.x > +2.0 || h_al.L_1_F.y < -4.5 || h_al.L_1_F.y > +4.5) continue;
+		if (h_al.R_1_F.x < -2.0 || h_al.R_1_F.x > +2.0 || h_al.R_1_F.y < -4.5 || h_al.R_1_F.y > +4.5) continue;
+		if (h_al.R_2_F.x < -2.0 || h_al.R_2_F.x > +2.0 || h_al.R_2_F.y < -4.5 || h_al.R_2_F.y > +4.5) continue;
 
 		// run reconstruction
 		Kinematics k = DoReconstruction(h_al, env);
