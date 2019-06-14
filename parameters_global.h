@@ -87,10 +87,10 @@ void Init_global()
 #endif
 
 	// TODO
-	anal.alignmentYRanges["L_2_F"] = Analysis::AlignmentYRange(-40., -0.3, +4.5, +40.);
-	anal.alignmentYRanges["L_1_F"] = Analysis::AlignmentYRange(-40., +0.5, +3.0, +40.);
-	anal.alignmentYRanges["R_1_F"] = Analysis::AlignmentYRange( -1., +0.0, +3.0, +40.);
-	anal.alignmentYRanges["R_2_F"] = Analysis::AlignmentYRange( -1., +0.0, +4.2, +40.);
+	anal.alignmentYRanges["L_2_F"] = Analysis::AlignmentYRange(-5., -2., +2., +5.);
+	anal.alignmentYRanges["L_1_F"] = Analysis::AlignmentYRange(-5., -2., +2., +5.);
+	anal.alignmentYRanges["R_1_F"] = Analysis::AlignmentYRange(-5., -2., +2., +5.);
+	anal.alignmentYRanges["R_2_F"] = Analysis::AlignmentYRange(-5., -2., +2., +5.);
 
 #if 0
 	// TODO
