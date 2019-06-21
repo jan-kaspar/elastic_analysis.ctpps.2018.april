@@ -86,11 +86,10 @@ void Init_global()
 	anal.t_min_fit = 0.027; // TODO
 #endif
 
-	// TODO
-	anal.alignmentYRanges["L_2_F"] = Analysis::AlignmentYRange(-5., -2., +2., +5.);
-	anal.alignmentYRanges["L_1_F"] = Analysis::AlignmentYRange(-5., -2., +2., +5.);
+	anal.alignmentYRanges["L_2_F"] = Analysis::AlignmentYRange(-3.5, -2.4, +2., +3.5);
+	anal.alignmentYRanges["L_1_F"] = Analysis::AlignmentYRange(-5., -2.8, +2.6, +3.9);
 	anal.alignmentYRanges["R_1_F"] = Analysis::AlignmentYRange(-5., -2., +2., +5.);
-	anal.alignmentYRanges["R_2_F"] = Analysis::AlignmentYRange(-5., -2., +2., +5.);
+	anal.alignmentYRanges["R_2_F"] = Analysis::AlignmentYRange(-3.8, -2., +2., +5.);
 
 #if 0
 	// TODO
