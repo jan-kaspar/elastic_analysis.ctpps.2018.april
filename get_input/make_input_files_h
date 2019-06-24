@@ -31,7 +31,7 @@ function MakeOne()
 
 #----------------------------------------------------------------------------------------------------
 
-eos_dir="/eos/cms/store/group/phys_pps/reconstruction/2018/alignment_run_April/version6"
+eos_dir="/eos/cms/store/group/phys_pps/reconstruction/2018/alignment_run_April/version7"
 
 MakeOne "DS-xangle-160-beta-30" "314247"
 
